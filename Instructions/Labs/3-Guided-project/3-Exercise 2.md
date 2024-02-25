@@ -31,16 +31,14 @@ lab:
 2. 在该频道中，选择“更多选项”菜单，然后选择“连接器”。********  （注意：请使用频道内的菜单，而不是频道列表中的菜单。）
 3. 搜索 `"webhook"`，然后选择“传入 Webhook”。****
 
-   :::image type="content" source="../../media/add-incoming-webhook.png" alt-text="搜索栏中 Webhook 的屏幕截图。":::
+   ![搜索栏中 Webhook 的屏幕截图。](../../media/add-incoming-webhook.png)
 
 4. 选择 **添加** 。
 5. 在概述页上，选择“添加”。****
 6. 在该频道中，再次选择“更多选项”菜单，然后选择“连接器”。********
 7. 在“传入 Webhook”旁边，选择“配置”。********
 8. 对于名称，输入“警报”。****
-9. 选择**创建**。
-10. 复制 URL 以在下一个任务中使用。****
-11. 选择“完成”  。
+9. 选择**创建**。  将此窗口保持打开状态，以便在下一个任务期间复制 URL。
 
 你已在该频道中配置了传入 Webhook。
 
@@ -49,15 +47,15 @@ lab:
 若要测试 Webhook，请使用 PowerShell 将一条消息发送到 Webhook 终结点。
 
 1. 打开 **PowerShell**。
-2. 运行以下命令来发送消息：
+2. 运行以下命令来发送消息。  将 <YOUR WEBHOOK URL> 替换为上一任务中 Teams 中 Webhook 配置窗口中的 URL：
 
      ```powershell
      Invoke-RestMethod -Method post -ContentType 'Application/Json' -Body '{"text":"Testing the Alerts endpoint."}' -Uri <YOUR WEBHOOK URL>
     ```
 
-## 检查你的工作
+## 检查工作
 
 1. 在 Microsoft Teams 客户端中，导航到所配置的频道的“对话”选项卡。****
 2. 验证频道中是否存在来自 `Alerts` 且读作`"Testing the Alerts endpoint"` 的消息。
 
- :::image type="content" source="../../media/final-alert-message.png" alt-text="Azure 门户中“已配置的权限”视图的屏幕截图。":::
+ ![Azure 门户中“已配置的权限”视图的屏幕截图。](../../media/final-alert-message.png)
