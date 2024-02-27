@@ -147,7 +147,21 @@ lab:
         }
    ```
 
-## 检查你的工作
+## 任务 5：注册新命令
+
+需要在支持命令机器人模板的对话流的 `ConversationBot` 中配置每个新命令。
+
+1. 导航到 `src/internal/initialize.ts` 文件。
+2. 在第 2 行添加以下导入语句：
+
+    `import { ResetPasswordCommandHandler } from "../resetPasswordCommandHandler";`
+3. 在第 20 行上，更新 `command` 属性的 `commands` 数组以包含用于初始化新处理程序的语句：`new ResetPasswordCommandHandler().  The updated `command' 对象应如下所示：
+
+   ```json
+   command: {    enabled: true,    commands: [new HelloWorldCommandHandler(), new ResetPasswordCommandHandler()],  },
+    ```
+
+## 检查工作
 
 在本地运行你的应用以测试功能：
 
