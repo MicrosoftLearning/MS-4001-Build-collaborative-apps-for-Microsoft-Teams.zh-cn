@@ -155,7 +155,7 @@ lab:
 2. 在第 2 行添加以下导入语句：
 
     `import { ResetPasswordCommandHandler } from "../resetPasswordCommandHandler";`
-3. 在第 20 行上，更新 `command` 属性的 `commands` 数组以包含用于初始化新处理程序的语句：`new ResetPasswordCommandHandler().  The updated `command' 对象应如下所示：
+3. 在第 20 行上，更新 `command` 属性的 `commands` 数组以包含用于初始化新处理程序的语句：`new ResetPasswordCommandHandler().  The updated `command` 对象应如下所示：
 
    ```json
    command: {    enabled: true,    commands: [new HelloWorldCommandHandler(), new ResetPasswordCommandHandler()],  },
