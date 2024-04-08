@@ -52,14 +52,14 @@ lab:
 | `.vscode/` | 用于本地调试的 VSCode 文件。 |
 | `appPackage/` | 应用包文件，包括 Teams 应用清单。 |
 | `infra/` | 用于预配 Azure 资源的模板。 |
-| `index.js` | 应用程序入口点和 `restify` 处理程序。 |
-| `teamsBot.js` | Teams 活动处理程序。  |
+| `index.ts` | 应用程序入口点和 `restify` 处理程序。 |
+| `teamsBot.ts` | Teams 活动处理程序。  |
 
 ## 任务 2：完成搜索功能
 
 该解决方案缺少用于存储要在 Graph 查询中使用的搜索查询字符串的值的代码。  更新代码以将此值存储在名为 `searchQuery` 的变量中。
 
-1. 导航到 **TeamsBot.ts** 文件。
+1. 导航到 **teamsBot.ts** 文件。
 2. 在 `handleTeamsMessagingExtensionQuery` 方法中，找到注释 **// 从查询参数获取搜索上下文。** （第 81 行）并在下一行中添加以下代码行：
 
     ```JavaScript
@@ -74,7 +74,7 @@ lab:
 
       `// Use the Graph API to search for users by their display name.`
 
-2. 在下一行代码中，将 `path` 替换为以下 API 路径：
+2. 在下一行代码中，将 `PATH` 替换为以下 API 路径：
 
      ```TypeScript
      /users?$search="displayName:${searchQuery}"&$count=true
@@ -104,7 +104,7 @@ lab:
 
 1. 使用你的 Microsoft 365 管理员帐户在 portal.azure.com 登录到 Azure 门户。[](portal.azure.com)****
 2. 在左侧导航菜单中，导航到“Microsoft Entra ID”。****
-3. 导航到“管理 > 应用注册 > 所有注册”。****
+3. 导航到“管理”>“应用注册”>“所有应用程序”****
 4. 选择预配期间创建的 ContactDetails 应用注册。****
 5. 导航到“管理 > API 权限”。****
 6. 选择“+ 添加权限”****。
