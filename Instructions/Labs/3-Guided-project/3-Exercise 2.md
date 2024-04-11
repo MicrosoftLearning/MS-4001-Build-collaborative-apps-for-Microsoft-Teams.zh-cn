@@ -53,9 +53,9 @@ lab:
      Invoke-RestMethod -Method post -ContentType 'Application/Json' -Body '{"text":"Testing the Alerts endpoint."}' -Uri <YOUR WEBHOOK URL>
     ```
 
-## 检查工作
+## 检查你的工作
 
-1. 在 Microsoft Teams 客户端中，导航到所配置的频道的“对话”选项卡。****
+1. 在 Microsoft Teams 客户端中，导航到所配置频道的“帖子”选项卡。****
 2. 验证频道中是否存在来自 `Alerts` 且读作`"Testing the Alerts endpoint"` 的消息。
 
  ![Azure 门户中“已配置的权限”视图的屏幕截图。](../../media/final-alert-message.png)
