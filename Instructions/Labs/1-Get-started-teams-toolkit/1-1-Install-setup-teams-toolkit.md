@@ -10,7 +10,7 @@
 
 ![在 Visual Studio Code 上安装 Teams Toolkit 的屏幕截图。](../../media/teams-toolkit-install.png)
 
-**注意**：本模块中的练习使用 Teams Toolkit v5.0.0。
+**注意**：本模块中的练习使用 Teams Toolkit v5.6.0。 请注意，次要版本可能有所不同。
 
 还可以从 Visual Studio Marketplace 中安装 Teams Toolkit。[](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
 

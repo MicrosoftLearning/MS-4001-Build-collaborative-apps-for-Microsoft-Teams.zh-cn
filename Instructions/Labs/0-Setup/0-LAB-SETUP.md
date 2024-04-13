@@ -9,7 +9,7 @@
 - 对 Microsoft 365 租户的管理员访问权限。
 - Azure 订阅。
 - Visual Studio Code。
-- Teams Toolkit Visual Studio Code 扩展：版本 5.0.0 或更高版本。 （将在实验室期间安装）
+- Teams Toolkit Visual Studio Code 扩展：版本 5.2.0 或更高版本。 （将在实验室期间安装）
 - Microsoft Teams 客户端（适用于工作场所或学校），或通过 Web 浏览器访问 Microsoft Teams。
 - Node.js 版本 16.14.2。
 
@@ -31,7 +31,7 @@
 1. 打开**命令提示符**应用程序。
 2. 输入命令 `nvm install 16.14.2` 以安装 Node.js。
 3. nvm 输出应确认安装已完成。
-4. 运行命令 `nvs use 16.14.2` 以使用此版本的 Node.js。
+4. 运行命令 `nvm use 16.14.2` 以使用此版本的 Node.js。
 5. 运行命令 `node -v` 以确认已安装了版本 16.14.2。
 
 现已安装和配置了 Node.js 版本 16.14.2

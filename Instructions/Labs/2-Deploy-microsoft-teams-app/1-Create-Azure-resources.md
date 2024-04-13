@@ -2,7 +2,7 @@
 
 在本练习中，你将首先使用 Teams Toolkit for Visual Studio Code 创建并预配 Teams 选项卡应用。 在后面的练习中，你会将该应用设置为托管在 Azure 中。
 
-**注意**：本培训模块中的练习使用 Teams Toolkit v5.0.0。 以下步骤假定已安装 Teams Toolkit 扩展。
+**注意**：本培训模块中的练习使用了 Teams Toolkit v5.6.0。 以下步骤假定已安装 Teams Toolkit 扩展。
 
 ## 任务 1：创建一个新的选项卡应用
 

@@ -31,13 +31,15 @@ lab:
 
 使用命令机器人模板创建一个新机器人：
 
-1. 在 Visual Studio Code 中，在边栏中导航到“Teams Toolkit”。****
-2. 在 Teams Toolkit 中的“开发”菜单中，选择“创建新应用”。********
-3. 从“新建项目”菜单中，选择“机器人”，然后选择“聊天命令”以构建命令机器人。************
-4. 对于“编程语言”，选择“TypeScript”。****
-5. 对于“工作区文件夹”，选择或创建一个文件夹，用于在计算机上存储你的项目文件。****
-6. 对于“应用程序名称”，输入“SupportCommandBot”，然后按 Enter。************  Teams Toolkit 将创建你的机器人项目并搭建其基架。
-7. 使用 Visual Studio Code 中的资源管理器查看项目目录和文件，以熟悉源代码。
+1. 打开 Visual Studio Code。
+1. 在边栏上，选择“**Microsoft Teams**”图标以打开“**TEAMS 工具包**”面板。
+1. 单击“**创建新应用**”按钮。
+1. 从“新建项目”菜单中，选择“机器人”，然后选择“聊天命令”以构建命令机器人。************
+1. 对于“编程语言”，选择“TypeScript”。****
+1. 对于“工作区文件夹”，选择或创建一个文件夹，用于在计算机上存储你的项目文件。****
+1. 对于“应用程序名称”，输入“SupportCommandBot”，然后按 Enter。************ Teams 工具包将为新应用搭建基架，并在 Visual Studio Code 中打开项目文件夹。
+1. 你可能会从 Visual Studio Code 收到一条消息，询问你是否信任此文件夹中的文件创建者。 选择“**是，我信任作者**”按钮以继续。
+1. 使用 Visual Studio Code 中的资源管理器查看项目目录和文件，以熟悉源代码。
 
 ## 任务 2：配置清单
 
@@ -155,17 +157,114 @@ lab:
 2. 在第 2 行添加以下导入语句：
 
     `import { ResetPasswordCommandHandler } from "../resetPasswordCommandHandler";`
-3. 在第 20 行上，更新 `command` 属性的 `commands` 数组以包含用于初始化新处理程序的语句：`new ResetPasswordCommandHandler().  The updated `command` 对象应如下所示：
+3. 在第 20 行上，更新 `command` 属性的 `commands` 数组以包含用于初始化新处理程序的语句：`new ResetPasswordCommandHandler().  The updated `command' 对象应如下所示：
 
    ```json
    command: {    enabled: true,    commands: [new HelloWorldCommandHandler(), new ResetPasswordCommandHandler()],  },
     ```
 
-## 检查工作
+## 任务 6：从开发隧道切换到 ngrok（可选）
+
+如果开发环境不支持 Teams 工具包开发隧道，则可以将开发隧道替换为 ngrok。
+
+1. 请按照以下步骤安装 ngrok：
+   1. 转到 [ngrok 网站](https://ngrok.com/)并注册帐户。
+   1. 下载操作系统的 ngrok 可执行文件。
+   1. 将下载的文件提取到所选目录。
+   1. 对于 Windows 环境，将 `ngrok.exe` 所在的目录添加到系统的 PATH 环境变量 
+      ```powershell
+      setx PATH "$Env:path;<ngrok_full_path>"
+      ```
+      _在 PowerShell 环境中，将 `<ngrok_full_path>` 替换为 `ngrok.exe` 所在路径。_
+      > 若要应用此环境变量更改，需要为当前项目重启终端和 **Visual Studio Code**。
+
+   1. 打开终端或命令提示符并运行以下命令，对 ngrok 帐户进行身份验证：
+      ```shell
+      ngrok config add-authtoken <your_auth_token>
+      ```
+      _将 `<your_auth_token>` 替换为 ngrok 网站上提供的身份验证令牌：_
+   1. 若要在端口 3978 启动隧道，请运行以下命令：
+      ```shell
+      ngrok http 3978
+      ```
+   1. Ngrok 将生成一个转发 URL，可用于从 Internet 访问应用。
+      ```shell
+      Forwarding      http://<random_string>.ngrok-free.app -> http://localhost:3978
+      ```
+   1. 单击 `Ctrl + C` 断开 ngrok 隧道的连接。
+1. 导航到`.vscode`文件夹，然后打开`task.json`文件。 更新 `Start local tunnel` 任务：
+   ```json
+    {
+        "label": "Start local tunnel",
+        "type": "shell",
+        "command": "ngrok http 3978 --log=stdout --log-format=logfmt",
+        "isBackground": true,
+        "problemMatcher": {
+            "pattern": [
+                {
+                    "regexp": "^.*$",
+                    "file": 0,
+                    "location": 1,
+                    "message": 2
+                }
+            ],
+            "background": {
+                "activeOnStart": true,
+                "beginsPattern": "starting web service",
+                "endsPattern": "started tunnel|failed to reconnect session"
+            }
+        }
+    }
+   ```
+1. 导航到根文件夹中的 `teamsapp.local.yml` 文件。 在预配生命周期的第一步中添加以下操作
+   - Windows
+     ```yml
+     provision:
+       - uses: script
+         with:
+           shell: powershell
+           run: |
+                for ($i = 1; $i -le 10; $i++) {
+                    $endpoint = (Invoke-WebRequest -Uri "http://localhost:4040/api/tunnels" | Select-String -Pattern 'https://[a-zA-Z0-9 -\.]*\.ngrok-free\.app').Matches.Value
+                    if ($endpoint) {
+                        break
+                    }
+                    sleep 10
+                }
+                if (-not $endpoint) {
+                    echo "ERROR: Failed to find tunnel endpoint after 10 attempts."
+                    exit 1
+                } else {
+                    echo "::set-teamsfx-env BOT_ENDPOINT=$endpoint"
+                    echo "::set-teamsfx-env BOT_DOMAIN=$($endpoint.Substring(8))"
+                }
+     ```
+   - Linux 和 macOS
+     ```yml
+     provision:
+        - uses: script
+            with:
+            run: |
+                for i in {1..10}; do
+                    endpoint=$(curl -s localhost:4040/api/tunnels | grep -o 'https://[a-zA-Z0-9 -\.]*\.ngrok-free\.app')
+                    if [ -n "$endpoint" ]; then
+                        break
+                    fi
+                    sleep 10
+                done
+                if [ -z "$endpoint" ]; then
+                    echo "ERROR: Failed to find tunnel endpoint after 10 attempts."
+                    exit 1
+                else
+                    echo "::set-teamsfx-env BOT_ENDPOINT=$endpoint"
+                    echo "::set-teamsfx-env BOT_DOMAIN=${endpoint:8}"
+                fi
+     ```
+## 检查你的工作
 
 在本地运行你的应用以测试功能：
 
-1. 在“生命周期”菜单中，选择“预览 Teams 应用”（或使用 `F5` 键），然后选择使用你偏爱的浏览器“在 Teams 中调试()”。************  
+1. 打开 **TEAMS 工具包**平底板。 在“**开发**”菜单中，选择“**预览 Teams 应用**”（或使用 `F5` 键），然后选择使用你偏爱的浏览器“**在 Teams 中调试()**”。  
 2. Teams Toolkit 将在浏览器中在本地预配和运行你的应用。
 3. 在浏览器中的应用安装对话框中，选择“添加”以安装你的 Teams 应用。****  Teams 将打开与已安装机器人的对话。
 4. 输入或选择命令 `resetPassword`。
