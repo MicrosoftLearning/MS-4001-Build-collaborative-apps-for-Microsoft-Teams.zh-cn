@@ -37,7 +37,7 @@
 
 ## 任务 2：从应用商店安装应用
 
-1. 使用你的 **Microsoft 365 租户凭据**打开 Microsoft Teams 客户端或登录到 Microsoft Teams Online ([teams.microsoft.com](teams.microsoft.com))。
+1. 使用你的 **Microsoft 365 租户凭据**打开 Microsoft Teams 客户端或登录到 Microsoft Teams Online ([teams.microsoft.com](https://teams.microsoft.com/))。
 2. 在 Microsoft Teams 中，转到“应用”以查看组织应用商店****。 在“**为组织生成**”下，选择“**hello-tabdev**”磁贴。
 
     a. ![组织应用商店的屏幕截图，其中突出显示了 hello-tab 应用。](../../media/org-store.png)
