@@ -130,7 +130,6 @@ lab:
     import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
     import rawResetPasswordCard from "./adaptiveCards/resetPassword.json";
    ```
-
 3. 在这些 import 语句下方，添加以下代码来实现命令处理程序，然后保存该文件：
 
    ```typescript
@@ -260,6 +259,7 @@ lab:
                     echo "::set-teamsfx-env BOT_DOMAIN=${endpoint:8}"
                 fi
      ```
+     
 ## 检查你的工作
 
 在本地运行你的应用以测试功能：
