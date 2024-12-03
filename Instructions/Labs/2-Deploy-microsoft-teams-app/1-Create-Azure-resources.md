@@ -2,7 +2,7 @@
 
 在本练习中，你将首先使用 Teams Toolkit for Visual Studio Code 创建并预配 Teams 选项卡应用。 在后面的练习中，你会将该应用设置为托管在 Azure 中。
 
-**注意**：本培训模块中的练习使用了 Teams Toolkit v5.6.0。 以下步骤假定已安装 Teams Toolkit 扩展。
+**注意**：本培训模块中的练习使用了 Teams Toolkit v5.8.0。 以下步骤假定已安装 Teams Toolkit 扩展。
 
 ## 任务 1：创建一个新的选项卡应用
 
@@ -34,6 +34,8 @@
 
 1. 成功测试应用后，停止在本地运行应用。
 
+    ![调试选项卡应用的屏幕截图](../../media/launch-debug-tab-app.png)
+
 1. 若要结束调试会话并停止运行应用，可以关闭浏览器并选择“运行”>“停止调试”，或者选择 Shift+F5。********
 
 ## 任务 2：在 Teams Toolkit 中登录到 Azure
@@ -49,6 +51,7 @@
 1. 在出现的对话框中，选择“确定”。****
 
     ![用于确认登录到 Azure 的对话框的屏幕截图。](../../media/sign-into-azure-alert.png)
+    ![登录到 Azure 的屏幕截图](../../media/signed-into-azure.png)
 
 ## 任务 3：预配资源
 
@@ -72,6 +75,7 @@
 
 1. 此时将开始为在 Azure 中托管 Teams 选项卡应用所需的所有资源进行预配。 预配可能需要花费一段时间。
 
+    ![预配成功的屏幕截图。](../../media/provision-success.png)
 你现在已成功预配了托管 Teams 选项卡应用程序所需的所有资源。
 
 接下来，你需要将你的应用的源代码部署到这些资源。

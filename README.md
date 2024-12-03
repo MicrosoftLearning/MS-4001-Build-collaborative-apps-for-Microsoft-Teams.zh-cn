@@ -1,3 +1,5 @@
+**本课程将于 **2024 年 8 月 30 日**停用。课程停用后，将移除所有 GitHub 存储库。谢谢。**
+
 # MS-4001：构建适用于 Microsoft Teams 的协作应用
 
 **你是 MCT 吗？** - 查看 [MCT GitHub 用户指南](https://microsoftlearning.github.io/MCT-User-Guide/)

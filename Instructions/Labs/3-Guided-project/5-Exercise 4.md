@@ -33,13 +33,13 @@ lab:
 
 1. 打开 Visual Studio Code。
 1. 在边栏上，选择“**Microsoft Teams**”图标以打开“**TEAMS 工具包**”面板。
-1. 单击“**创建新应用**”按钮。
+1. 选择“**创建新应用**”按钮。
 1. 从“新建项目”菜单中，选择“机器人”，然后选择“聊天命令”以构建命令机器人。************
 1. 对于“编程语言”，选择“TypeScript”。****
 1. 对于“工作区文件夹”，选择或创建一个文件夹，用于在计算机上存储你的项目文件。****
 1. 对于“应用程序名称”，输入“SupportCommandBot”，然后按 Enter。************ Teams 工具包将为新应用搭建基架，并在 Visual Studio Code 中打开项目文件夹。
 1. 你可能会从 Visual Studio Code 收到一条消息，询问你是否信任此文件夹中的文件创建者。 选择“**是，我信任作者**”按钮以继续。
-1. 使用 Visual Studio Code 中的资源管理器查看项目目录和文件，以熟悉源代码。
+1. 使用 Visual Studio Code 中的资源管理器查看项目目录和文件，以熟悉源代码。 ![资源管理器中文件的屏幕截图](../../media/explorer-bot-file.png)
 
 ## 任务 2：配置清单
 
@@ -190,7 +190,7 @@ lab:
       ```shell
       Forwarding      http://<random_string>.ngrok-free.app -> http://localhost:3978
       ```
-   1. 单击 `Ctrl + C` 断开 ngrok 隧道的连接。
+   1. 选择 `Ctrl + C` 断开 ngrok 隧道的连接。
 1. 导航到`.vscode`文件夹，然后打开`task.json`文件。 更新 `Start local tunnel` 任务：
    ```json
     {
@@ -266,6 +266,6 @@ lab:
 
 1. 打开 **TEAMS 工具包**平底板。 在“**开发**”菜单中，选择“**预览 Teams 应用**”（或使用 `F5` 键），然后选择使用你偏爱的浏览器“**在 Teams 中调试()**”。  
 2. Teams Toolkit 将在浏览器中在本地预配和运行你的应用。
-3. 在浏览器中的应用安装对话框中，选择“添加”以安装你的 Teams 应用。****  Teams 将打开与已安装机器人的对话。
+3. 在浏览器中的应用安装对话框中，选择“添加”以安装你的 Teams 应用。****  Teams 将打开与已安装机器人的对话。 ![添加 SupportCommandBotlocal 的屏幕截图](../../media/add-supportcommandbotlocal.png)
 4. 输入或选择命令 `resetPassword`。
-5. 验证机器人是否使用包含密码重置说明的自适应卡片进行答复。
+5. 验证机器人是否使用包含密码重置说明的自适应卡片进行答复。 ![SupportCommandBotlocal 正在运行的屏幕截图](../../media/supportcommandbotlocal-run.png)
