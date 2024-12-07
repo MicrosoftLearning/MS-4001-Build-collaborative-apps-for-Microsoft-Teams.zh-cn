@@ -9,32 +9,32 @@
 - 对 Microsoft 365 租户的管理员访问权限。
 - Azure 订阅。
 - Visual Studio Code。
-- Teams Toolkit Visual Studio Code 扩展：版本 5.2.0 或更高版本。 （将在实验室期间安装）
+- Teams Toolkit Visual Studio Code 扩展：版本 5.8.1 或更高版本。 （将在实验室期间安装）
 - Microsoft Teams 客户端（适用于工作场所或学校），或通过 Web 浏览器访问 Microsoft Teams。
-- Node.js 版本 16.14.2。
+- Node.js 版本 18.20.4。
 
 ## 安装 nvm-windows
 
 你将使用此工具安装Node.js，并根据需要为项目切换所需的 Node 版本。
 
 1. 在网页浏览器中，导航到 [https://github.com/coreybutler/nvm-windows/releases](https://github.com/coreybutler/nvm-windows/releases)。
-2. 找到最新发布的版本，然后选择要下载的 **nvm-setup.zip** 文件。  将该文件下载到计算机。
+2. 找到最新发布的版本，然后选择要下载的 **nvm-setup.zip** 文件。  将该文件下载到计算机。 ![nvm-setup.zip 下载的屏幕截图](../../media/download-nvm-setup.png)
 3. 打开文件夹，并将 zip 文件夹的内容**提取**到计算机上的某个文件夹中。
 4. 从新的文件夹中，选择 **nvm-setup.exe** 以打开安装文件。
-5. 按照安装程序中的提示，使用默认选项安装该工具。
+5. 按照安装程序中的提示，使用默认选项安装该工具。 ![设置 nvm 安装的屏幕截图](../../media/install-nvm.png)
 6. 将在计算机上安装 Nvm for Windows。
 
 ## 安装 Node.js
 
-安装 Node.js 版本 16.14.2，该版本与本课程中的所有解决方案相兼容。
+安装 Node.js 18.20.4 版本，该版本与本课程中的所有解决方案兼容。
 
 1. 打开**命令提示符**应用程序。
-2. 输入命令 `nvm install 16.14.2` 以安装 Node.js。
+2. 输入命令 `nvm install 18.20.4` 以安装 Node.js。
 3. nvm 输出应确认安装已完成。
-4. 运行命令 `nvm use 16.14.2` 以使用此版本的 Node.js。
-5. 运行命令 `node -v` 以确认已安装了版本 16.14.2。
+4. 运行命令 `nvm use 18.20.4` 以使用此版本的 Node.js。
+5. 运行 `node -v` 命令，确认已安装 18.20.4 版本。
 
-现已安装和配置了 Node.js 版本 16.14.2
+现已安装和配置了 Node.js 18.20.4 版本 ![安装 npm 的屏幕截图](../../media/nvm-install-npm.png)
 
 ## Azure 订阅
 

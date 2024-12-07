@@ -102,7 +102,7 @@ lab:
 
 ## 任务 5：配置检索 Microsoft Graph 数据的权限
 
-1. 使用你的 Microsoft 365 管理员帐户在 portal.azure.com 登录到 Azure 门户。[](portal.azure.com)****
+1. 使用你的 Microsoft 365 管理员帐户在 portal.azure.com 登录到 Azure 门户。[](https://portal.azure.com)****
 2. 在左侧导航菜单中，导航到“Microsoft Entra ID”。****
 3. 导航到“管理”>“应用注册”>“所有应用程序”****
 4. 选择预配期间创建的 ContactDetails 应用注册。****
@@ -146,3 +146,5 @@ lab:
 5. 当消息扩展在 Teams 客户端中加载时，输入一个字母以按显示名称搜索用户。  选择一个结果以将卡片插入对话。
 
 注意：如果出于任何原因，消息扩展未自动调用，可以在 Teams 客户端顶部的命令栏中或撰写消息区域中输入“@Contact Details dev”来访问它。  还可以使用撰写消息区域中的“操作和应用”按钮来查找应用。****
+
+   ![调用消息扩展的屏幕截图](../../media/invoke-message-extension.png)
